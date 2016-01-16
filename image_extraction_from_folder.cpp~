@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<iostream>
+#include<cv.h>
+#include <opencv2/opencv.hpp>
+using namespace std;
+using namespace cv;
+
+int main()
+{
+
+string datainput("/home/gaurav/Pictures/demo000.jpg");
+VideoCapture sequence(datainput);
+
+Mat img;
+namedWindow("Image",CV_WINDOW_NORMAL);
+for(;;)
+{
+sequence>>img;
+if(img.empty())
+{
+cout<<"end  of sequence\n";
+break;
+}
+imshow("image",img);
+//sleep(2);
+cout<<"hi\n";
+if(waitKey(30)>=0)break;
+}
+
+
+return 0;
+}
